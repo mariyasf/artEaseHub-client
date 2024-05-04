@@ -28,6 +28,24 @@ const Login = () => {
 
                 // NAvigate after login
                 navigate(location?.state ? location.state : '/')
+                const user = {
+                    email,
+                    lastLoginAt: result.user?.metadata?.lastSignInTime,
+                }
+                fetch('http://localhost:5000/user', {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.insertedId) {
+                            console.log('Login')
+                        }
+                    })
             })
             .catch(error => {
                 console.log(error)
