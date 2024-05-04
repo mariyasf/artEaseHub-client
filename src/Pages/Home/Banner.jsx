@@ -1,64 +1,76 @@
-import './banner.css';
+import { useState } from 'react';
+import b1 from '/images/b1.jpg'
+import b2 from '/images/b2.jpg'
+import b3 from '/images/b3.jpeg'
+import b4 from '/images/s1.jpg'
+
+import { Typewriter } from 'react-simple-typewriter'
 
 const Banner = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const slides = [
+        {
+            image: b1, description: "Nature's beauty captured on canvas."
+        },
+        {
+            image: b2, description: "Expressive faces in intricate detail"
+        },
+        {
+            image: b3, description: "Bold strokes, captivating contrasts."
+        },
+        {
+            image: b4, description: "Vibrant hues blending on paper"
+        },
+
+    ];
+
+    const nextSlide = () => {
+        setCurrentSlide(currentSlide === slides.length - 1 ? 0 : currentSlide + 1);
+    };
+
+    const prevSlide = () => {
+        setCurrentSlide(currentSlide === 0 ? slides.length - 1 : currentSlide - 1);
+    };
+
     return (
-        <>
-            <div
-                className='banner font-Rancho text-white
-            lg:justify-end flex'
-            >
-                <div className='px-10 pt-20 lg:pt-40 space-y-5'>
-                    <h2 className='font-bold text-4xl'>
-                        Would you like a Cup of Delicious Coffee?
-                    </h2>
+        <div className="carousel w-full relative">
+            {
+                slides.map((slide, index) => (
+                    <div key={index}
+                        id={`slide${index}`}
+                        className={`carousel-item relative w-full h-[800px] ${index === currentSlide ? 'block' : 'hidden'}`}>
 
-                    <p className='text-xl lg:w-[750px]'>
-                        It's coffee time - Sip & Savor - Relaxation in every sip! Get the nostalgia back!! Your companion of every moment!!! Enjoy the beautiful moments and make them memorable.
-                    </p>
+                        <img src={slide.image}
+                            className="w-full h-[800px]"
+                            alt={`Slide ${index + 1}`} />
 
-                    <button className='primary-btn'>Learn More</button>
-                </div>
+                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black opacity-150"></div>
 
-            </div >
-            <div className='bg-[#ECEAE3] flex flex-col lg:flex-row text-center gap-4 mx-auto p-10'>
+                        <div className={`absolute top-0 left-0 w-full h-full flex flex-col 
+                        justify-center items-center text-black
+                        ${index === currentSlide ? 'fade-in' : 'fade-out'}`}>
 
-                <div>
-                    <img className='mx-auto' src="/images/icons/1.png" alt="" />
-                    <h3 className='font-Rancho text-xl font-bold'>Awesome Aroma</h3>
-                    <p>You will definitely be a fan of the design & aroma of your coffee</p>
-                </div>
-                <div>
-                    <img className='mx-auto' src="/images/icons/2.png" alt="" />
-                    <h3 className='font-Rancho text-xl font-bold'>High Quality</h3>
-                    <p>
-                        We served the coffee to you maintaining the best quality
-                    </p>
-                </div>
-                <div>
-                    <img className='mx-auto' src="/images/icons/3.png" alt="" />
-                    <h3 className='font-Rancho text-xl font-bold'>
-                        Pure Grades
-                    </h3>
-                    <p>
-                        The coffee is made of the green coffee beans which you will love
-                    </p>
-                </div>
-                <div>
-                    <img className='mx-auto' src="/images/icons/4.png" alt="" />
-                    <h3 className='font-Rancho text-xl font-bold'>
-                        Proper Roasting
-                    </h3>
-                    <p>
-                        Your coffee is brewed by first roasting the green coffee beans
-                    </p>
-                </div>
+                            <div className='text-[40px] lg:text-[90px] font-Rancho font-bold  
+                            lg:w-[650px] mx-auto bg-[#ECEAE3] p-4'>
 
+                                <Typewriter
+                                    words={[slide.description]}
+                                    loop={false}
+                                    cursor={false}
+                                    typeSpeed={80}
+                                    deleteSpeed={false}
+                                />
+                            </div>
+                        </div>
 
-
-            </div>
-
-
-        </>
+                        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <button onClick={prevSlide} className="btn btn-circle">❮</button>
+                            <button onClick={nextSlide} className="btn btn-circle">❯</button>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
     );
 };
 

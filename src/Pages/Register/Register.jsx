@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     document.title = 'Register'
-    const { createNewUser } = useContext(AuthContext);
+    const { createNewUser, updateUserProfile } = useContext(AuthContext);
     const [showPass, setShowPass] = useState(false);
 
     const handleRegister = (e) => {
@@ -18,6 +18,7 @@ const Register = () => {
         const name = form.get('name');
         const email = form.get('email');
         const photo = form.get('imageUrl');
+        const phoneNumber = form.get('phoneNumber');
         const password = form.get('password');
         const termsAC = e.target.terms.checked;
         console.log(name, photo, email, password);
@@ -40,13 +41,38 @@ const Register = () => {
             return toast.error('Please accept our terms and conditions');
         }
 
-    
+
         // create new User
         createNewUser(email, password)
             .then(result => {
                 console.log(result.user);
                 toast.success('Registration successful! You can now log in.');
+                // Update Profile
+                updateUserProfile(name, photo, phoneNumber)
+                    .then()
+                    .catch()
+
+                const createdAt = result.user?.metadata?.creationTime;
+                const user = { name, email, createAt: createdAt };
+                fetch(`http://localhost:5000/user`, {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.insertedId) {
+                            console.log('Register user')
+                        }
+                    })
+
+
                 e.target.reset();
+
+
             })
             .catch(error => {
                 console.error(error);
