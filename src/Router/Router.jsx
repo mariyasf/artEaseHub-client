@@ -7,6 +7,10 @@ import Home from "../Pages/Home/Home";
 import UserProfile from "../Pages/USerProfile/UserProfile";
 import PrivateRouter from "./PrivateRouter";
 import AddCard from "../Pages/AddCard/AddCard";
+import ALLProduct from "../Components/ALLProduct";
+import UpdateCard from "../Pages/UpdateCard/UpdateCard";
+import SeeDetails from "../Components/SeeDetails";
+import MyCart from "../Components/MyCart";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +26,25 @@ const router = createBrowserRouter([
             {
                 path: "/add",
                 element: <PrivateRouter><AddCard /></PrivateRouter>,
+            },
+            {
+                path: "/seeDetails/:id",
+                element: <SeeDetails />
+            },
+            {
+                path: "/update/:id",
+                element: <UpdateCard />,
+                loader: ({ params }) => fetch(`http://localhost:5000/painting/${params.id}`),
+            },
+            {
+                path: "/allProduct",
+                element: <ALLProduct />,
+                loader: () => fetch('http://localhost:5000/painting'),
+            },
+            {
+                path: "/myCart",
+                element: <PrivateRouter><MyCart /></PrivateRouter>,
+
             },
             {
                 path: "/login",

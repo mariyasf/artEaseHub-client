@@ -19,8 +19,9 @@ const Navbar = () => {
     const navLink = <>
         <li> <NavLink to={'/'}> Home</NavLink> </li>
         <li> <NavLink to={'/add'}> Add</NavLink> </li>
-        <li> <NavLink to={'/register'}> Register</NavLink> </li>
-        <li> <NavLink to={'/'}> Home</NavLink> </li>
+        <li> <NavLink to={'/allProduct'}> All Product</NavLink> </li>
+        <li> <NavLink to={'/myCart'}> My Cart</NavLink> </li>
+
     </>
     return (
         <>

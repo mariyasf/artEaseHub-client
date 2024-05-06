@@ -6,7 +6,8 @@ import Swal from 'sweetalert2';
 
 const ProductCard = ({ product, painting, setPainting }) => {
 
-    const { _id, photo, name, price } = product;
+    const { _id, photo, item_name, price } = product;
+    // console.log(product);
 
     const handleDelete = (id) => {
         console.log(id);
@@ -56,7 +57,7 @@ const ProductCard = ({ product, painting, setPainting }) => {
             <div className="flex-1 flex flex-row justify-evenly gap-10 py-5">
 
                 <div>
-                    <p><span className="font-bold">Name:</span> {name}</p>
+                    <p><span className="font-bold">Name:</span> {item_name}</p>
                     <p><span className="font-bold">price:</span> {price}</p>
                     <p><span className="font-bold">Price:</span> $12</p>
                 </div>

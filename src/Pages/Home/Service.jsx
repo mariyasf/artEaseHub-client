@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Service = () => {
     return (
@@ -26,8 +27,11 @@ const Service = () => {
                         <figure><img src="/images/s2.jpg" className="h-[350px] w-full" alt="Shoes" /></figure>
                         <div className="card-body  font-Poppins">
                             <h2 className="card-title">Landscape Painting</h2>
-                            <a className="btn bg-purple-700 hover:bg-purple-900
+                            <Link to={"/allProduct"}>
+                                <a className="btn bg-purple-700 hover:bg-purple-900
                              text-white text-xl uppercase">Explor more</a>
+
+                            </Link>
                         </div>
                     </div>
 
@@ -37,8 +41,11 @@ const Service = () => {
                         </figure>
                         <div className="card-body  font-Poppins">
                             <h2 className="card-title">Portrait Drawing</h2>
-                            <a className="btn bg-purple-700 hover:bg-purple-900
+                            <Link to={"/allProduct"}>
+                                <a className="btn bg-purple-700 hover:bg-purple-900
                              text-white text-xl uppercase">Explor more</a>
+
+                            </Link>
                         </div>
                     </div>
 
@@ -46,16 +53,22 @@ const Service = () => {
                         <figure><img src="/images/s5.jpg" className="h-[350px] w-full" alt="Shoes" /></figure>
                         <div className="card-body  font-Poppins">
                             <h2 className="card-title">Cartoon Drawing</h2>
-                            <a className="btn bg-purple-700 hover:bg-purple-900
+                            <Link to={"/allProduct"}>
+                                <a className="btn bg-purple-700 hover:bg-purple-900
                              text-white text-xl uppercase">Explor more</a>
+
+                            </Link>
                         </div>
                     </div>
                     <div className="card  bg-base-100 shadow-xl">
                         <figure><img src="/images/s6.jpg" className="h-[350px] w-full" alt="Shoes" /></figure>
                         <div className="card-body  font-Poppins">
                             <h2 className="card-title">Watercolour Painting</h2>
-                            <a className="btn bg-purple-700 hover:bg-purple-900
+                            <Link to={"/allProduct"}>
+                                <a className="btn bg-purple-700 hover:bg-purple-900
                              text-white text-xl uppercase">Explor more</a>
+
+                            </Link>
                         </div>
                     </div>
 

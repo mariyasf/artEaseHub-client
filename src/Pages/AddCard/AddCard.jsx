@@ -14,7 +14,9 @@ const AddCard = () => {
         const customization = form.customization.value;
         const processing_time = form.processing_time.value;
         const stock_status = form.stock_status.value;
+        const email = form.email.value;
         const photo = form.photo.value;
+        
         const newPainting = {
             item_name,
             subcategory_name,
@@ -24,6 +26,7 @@ const AddCard = () => {
             customization,
             processing_time,
             stock_status,
+            email,
             photo
         }
         console.log(newPainting);
@@ -49,7 +52,7 @@ const AddCard = () => {
                     });
                 }
             })
-       
+
         form.reset();
 
     }
@@ -183,6 +186,16 @@ const AddCard = () => {
                             <input type="text"
                                 name="photo"
                                 required placeholder="Enter Photo URL"
+                                className="input input-bordered w-full" />
+                        </label>
+
+                        <label className="form-control w-full">
+                            <div className="label">
+                                <span className="label-text">Email</span>
+                            </div>
+                            <input type="email"
+                                name="email"
+                                required placeholder="Enter Your Email"
                                 className="input input-bordered w-full" />
                         </label>
 
