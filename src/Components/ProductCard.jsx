@@ -62,24 +62,13 @@ const ProductCard = ({ product, painting, setPainting }) => {
                     <p><span className="font-bold">Price:</span> $12</p>
                 </div>
 
-                <div className="text-xl space-y-4 text-white">
 
-                    <div className="bg-[#D2B48C] w-8 h-8 flex text-center items-center justify-center">
-                        <Link to={`/seeDetails/${_id}`}>
-                            <FaEye />
-                        </Link>
+                <div className="bg-[#ce8930] w-8 h-8 flex text-xl text-white
+                 text-center items-center justify-center">
+                    <Link to={`/seeDetails/${_id}`}>
+                        <FaEye />
+                    </Link>
 
-                    </div>
-                    <div className="bg-[#3C393B] w-8 h-8 flex text-center items-center justify-center">
-                        <Link to={`/update/${_id}`}>
-                            <FaEdit />
-                        </Link>
-                    </div>
-                    <div >
-                        <button onClick={() => handleDelete(_id)}
-                            className="bg-[#EA4744] w-8 h-8 flex text-center items-center justify-center"><MdDelete /></button>
-
-                    </div>
 
                 </div>
 

@@ -3,37 +3,46 @@ import Swal from 'sweetalert2';
 import HomeButton from '../../Components/HomeButton';
 
 const UpdateCard = () => {
-    const coffee = useLoaderData();
+    const product = useLoaderData();
 
     const {
         _id,
-        name,
-        chef,
-        supplier,
-        taste,
-        category,
-        details,
+        item_name,
+        subcategory_name,
+        short_description,
+        price,
+        rating,
+        customization,
+        processing_time,
+        stock_status,
+        email,
         photo
-    } = coffee;
+    } = product;
 
     const handleUpdateCard = e => {
         e.preventDefault();
         const form = e.target;
-        const name = form.name.value;
-        const chef = form.chef.value;
-        const supplier = form.supplier.value;
-        const taste = form.taste.value;
-        const category = form.category.value;
-        const details = form.details.value;
+        const item_name = form.item_name.value;
+        const subcategory_name = form.subcategory_name.value;
+        const short_description = form.short_description.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const customization = form.customization.value;
+        const processing_time = form.processing_time.value;
+        const stock_status = form.stock_status.value;
+        const email = form.email.value;
         const photo = form.photo.value;
-        
+
         const updatedCard = {
-            name,
-            chef,
-            supplier,
-            taste,
-            category,
-            details,
+            item_name,
+            subcategory_name,
+            short_description,
+            price,
+            rating,
+            customization,
+            processing_time,
+            stock_status,
+            email,
             photo
         }
         console.log(updatedCard);
@@ -44,7 +53,7 @@ const UpdateCard = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(updatedCoffee)
+            body: JSON.stringify(updatedCard)
         })
             .then(res => res.json())
             .then(data => {
@@ -69,88 +78,125 @@ const UpdateCard = () => {
 
             <div className="bg-[#F4F3F0] flex flex-col items-center">
                 <div className="text-center space-y-5 py-20 px-10">
-                    <h2 className="font-Rancho text-4xl">Update Products Details</h2>
+                    <h2 className="font-Rancho text-4xl">Add Painting</h2>
 
 
                 </div>
 
                 <form
                     onSubmit={handleUpdateCard}
-                    className="px-10 pb-10 lg:px-40  w-full">
+                    className="px-10 pb-10 lg:px-40 w-full">
+
 
                     <div className="flex flex-col lg:flex-row gap-10">
                         <label className="form-control md:w-1/2">
                             <div className="label">
-                                <span className="label-text">Name</span>
-
+                                <span className="label-text">Item Name</span>
                             </div>
-
                             <input type="text"
-                                name="name"
-                                defaultValue={name} placeholder="Enter coffee name"
+                                name="item_name"
+                                defaultValue={item_name}
+                                required placeholder="Enter Painting Name"
                                 className="input input-bordered w-full" />
-
                         </label>
 
                         <label className="form-control md:w-1/2">
                             <div className="label">
-                                <span className="label-text">Chef</span>
-
+                                <span className="label-text">Subcategory Name</span>
                             </div>
-                            <input type="text"
-                                name="chef"
-                                defaultValue={chef} placeholder="Enter coffee chef "
-                                className="input input-bordered w-full" />
-
+                            <select
+                                name="subcategory_name"
+                                defaultValue={subcategory_name}
+                                className="input input-bordered w-full">
+                                <option value="">Select Option</option>
+                                <option value="landscape">Landscape Painting</option>
+                                <option value="portrait">Portrait Drawing</option>
+                                <option value="watercolor">Watercolor Painting</option>
+                                <option value="oil">Oil Painting</option>
+                                <option value="charcoal">Charcoal Sketching</option>
+                                <option value="cartoon">Cartoon Drawing</option>
+                                <option value="abstract">Abstract Art</option>
+                                <option value="realism">Realistic Art</option>
+                                <option value="floral">Floral Art</option>
+                                <option value="animal">Animal Portraits</option>
+                            </select>
                         </label>
                     </div>
 
                     <div className="flex flex-col lg:flex-row gap-10">
                         <label className="form-control md:w-1/2">
                             <div className="label">
-                                <span className="label-text">Supplier</span>
-
+                                <span className="label-text">Short Description</span>
                             </div>
-                            <input type="text"
-                                name="supplier"
-                                defaultValue={supplier} placeholder="Enter coffee supplier "
+                            <textarea
+                                name="short_description"
+                                defaultValue={short_description}
+                                required placeholder="Enter Short Description"
                                 className="input input-bordered w-full" />
-
                         </label>
+
                         <label className="form-control md:w-1/2">
                             <div className="label">
-                                <span className="label-text">Taste</span>
-
+                                <span className="label-text">Price</span>
                             </div>
-                            <input type="text"
-                                name="taste"
-                                defaultValue={taste} placeholder="Enter coffee taste"
+                            <input type="number"
+                                name="price"
+                                defaultValue={price}
+                                required placeholder="Enter Price"
                                 className="input input-bordered w-full" />
-
                         </label>
                     </div>
 
                     <div className="flex flex-col lg:flex-row gap-10">
                         <label className="form-control md:w-1/2">
                             <div className="label">
-                                <span className="label-text">Category</span>
-
+                                <span className="label-text">Rating</span>
                             </div>
-                            <input type="text"
-                                name="category"
-                                defaultValue={category} placeholder="nter coffee category"
+                            <input type="number"
+                                name="rating"
+                                defaultValue={rating}
+                                min="0" max="5" step="0.1"
+                                required placeholder="Enter Rating"
                                 className="input input-bordered w-full" />
                         </label>
+
                         <label className="form-control md:w-1/2">
                             <div className="label">
-                                <span className="label-text">Details</span>
+                                <span className="label-text">Customization</span>
+                            </div>
+                            <select
+                                name="customization"
+                                defaultValue={customization}
+                                required className="input input-bordered w-full">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </label>
+                    </div>
 
+                    <div className="flex flex-col lg:flex-row gap-10">
+                        <label className="form-control md:w-1/2">
+                            <div className="label">
+                                <span className="label-text">Processing Time</span>
                             </div>
                             <input type="text"
-                                name="details"
-                                defaultValue={details} placeholder="Enter coffee details"
+                                name="processing_time"
+                                defaultValue={processing_time}
+                                required placeholder="Enter Processing Time"
                                 className="input input-bordered w-full" />
+                        </label>
 
+                        <label className="form-control md:w-1/2">
+                            <div className="label">
+                                <span className="label-text">Stock Status</span>
+                            </div>
+                            <select
+                                name="stock_status"
+                                defaultValue={stock_status}
+                                required className="input input-bordered w-full">
+                                <option value="in_stock">In Stock</option>
+                                <option value="made_to_order">Made to Order</option>
+                            </select>
                         </label>
                     </div>
 
@@ -158,25 +204,32 @@ const UpdateCard = () => {
                         <label className="form-control w-full">
                             <div className="label">
                                 <span className="label-text">Photo</span>
-
                             </div>
                             <input type="text"
                                 name="photo"
-                                defaultValue={photo} placeholder="Enter photo URL"
+                                defaultValue={photo}
+                                required placeholder="Enter Photo URL"
                                 className="input input-bordered w-full" />
-
                         </label>
 
+                        <label className="form-control w-full">
+                            <div className="label">
+                                <span className="label-text">Email</span>
+                            </div>
+                            <input type="email"
+                                name="email"
+                                defaultValue={email}
+                                required placeholder="Enter Your Email"
+                                className="input input-bordered w-full" />
+                        </label>
 
-                        <input className="btn primary-btn2 w-full" type="submit" value="Update Coffee" />
-
+                        <input
+                            className="btn w-full bg-sky-500 text-white "
+                            type="submit"
+                            value="Update Card" />
                     </div>
-
-
-
                 </form>
             </div>
-
         </div>
     );
 };

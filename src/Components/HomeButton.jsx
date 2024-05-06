@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const HomeButton = () => {
     return (
         <div>
-            <Link to={'/home'}
+            <Link to={'/'}
             >
                 <button className="flex gap-4 items-center p-4
                  hover:bg-[#D2B48C] hover:rounded-xl  mb-10">

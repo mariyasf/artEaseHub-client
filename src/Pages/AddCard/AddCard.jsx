@@ -63,9 +63,7 @@ const AddCard = () => {
             <div className="bg-[#F4F3F0] flex flex-col items-center">
                 <div className="text-center space-y-5 py-20 px-10">
                     <h2 className="font-Rancho text-4xl">Add Painting</h2>
-                    <p className="lg:w-[800px] mx-auto">
-                        Unlock the world of artistry with our painting and drawing services. From enchanting landscapes to lifelike portraits, we bring your vision to life. Elevate your space with creativity and inspiration – contact us today
-                    </p>
+                     
 
                 </div>
 
