@@ -1,13 +1,13 @@
-import { Link } from "react-router-dom";
 
 const Service = () => {
     return (
-        <div className='relative flex justify-center items-center font-poppins'>
+        <div className='bg-[url("/images/s1.jpg")] bg-no-repeat bg-cover  flex justify-center items-center font-poppins' >
 
-            <img className='w-full h-[850px]' src='/images/s1.jpg' alt="" />
-            <div className='bg-black absolute h-full w-full bg-opacity-80'>
 
-                <div className="flex flex-col lg:flex-row  justify-evenly m-14 ">
+            <div className='bg-black h-full w-full bg-opacity-80'>
+                {/* <img className='w-full h-full  lg:h-[850px]' src='/images/s1.jpg' alt="" /> */}
+
+                <div className="flex flex-col lg:flex-row  justify-evenly m-14">
                     <p className='text-4xl text-center lg:w-1/5 font-Rancho
                      text-white '>
                         <span className="pb-5 border-b">Services That We Provide</span>
@@ -21,7 +21,7 @@ const Service = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-10 pb-10">
                     <div className="card  bg-base-100 shadow-xl">
                         <figure><img src="/images/s2.jpg" className="h-[350px] w-full" alt="Shoes" /></figure>
                         <div className="card-body  font-Poppins">
@@ -61,7 +61,7 @@ const Service = () => {
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
