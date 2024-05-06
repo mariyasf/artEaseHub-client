@@ -1,13 +1,18 @@
+import { IoIosColorPalette } from 'react-icons/io';
 import './about.css'
+import { GrClearOption } from 'react-icons/gr';
+import { FcServices } from 'react-icons/fc';
 
 const About = () => {
     return (
-        <div className='bg-[#ECEAE3] my-20 flex flex-col lg:flex-row text-center gap-4 mx-auto p-10'>
+        <div className='bg-[#ECEAE3] mb-20 flex flex-col lg:flex-row text-center gap-4 mx-auto p-10'>
 
             <div>
-                <img className='mx-auto' src="/images/icons/1.png" alt="" />
-                <h3 className='font-Rancho text-xl font-bold'>Awesome Aroma</h3>
-                <p>You will definitely be a fan of the design & aroma of your coffee</p>
+                <IoIosColorPalette className='mx-auto text-8xl' />
+                <h3 className='font-Rancho text-xl font-bold'>Unique Designs</h3>
+                <p>
+                    Each painting is crafted with unique and innovative designs to captivate your imagination.
+                </p>
             </div>
             <div>
                 <img className='mx-auto' src="/images/icons/2.png" alt="" />
@@ -17,22 +22,22 @@ const About = () => {
                 </p>
             </div>
             <div>
-                <img className='mx-auto' src="/images/icons/3.png" alt="" />
+                <FcServices className='mx-auto text-8xl' />
                 <h3 className='font-Rancho text-xl font-bold'>
-                    Pure Grades
+                    Professional Service
                 </h3>
                 <p>
-                    The coffee is made of the green coffee beans which you will love
+                    We offer professional-grade services, ensuring meticulous attention to detail and customer satisfaction.
                 </p>
             </div>
-            
+
             <div>
-                <img className='mx-auto' src="/images/icons/4.png" alt="" />
+                <GrClearOption className='mx-auto text-8xl' />
                 <h3 className='font-Rancho text-xl font-bold'>
-                    Proper Roasting
+                    Customization Options
                 </h3>
                 <p>
-                    Your coffee is brewed by first roasting the green coffee beans
+                    Tailor your painting experience with our customizable options, making each piece uniquely yours.
                 </p>
             </div>
 
