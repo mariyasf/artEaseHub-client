@@ -11,6 +11,7 @@ import ALLProduct from "../Components/ALLProduct";
 import UpdateCard from "../Pages/UpdateCard/UpdateCard";
 import SeeDetails from "../Components/SeeDetails";
 import MyCart from "../Components/MyCart";
+import Feedback from "../Pages/Feedback/Feedback";
 
 const router = createBrowserRouter([
     {
@@ -47,18 +48,23 @@ const router = createBrowserRouter([
 
             },
             {
-                path: "/login",
-                element: <Login />,
-            },
-            {
-                path: "/register",
-                element: <Register />
+                path: "/feedback",
+                element: <PrivateRouter><Feedback /></PrivateRouter>,
+
             },
             {
                 path: "/profile",
                 element: <PrivateRouter> <UserProfile /></PrivateRouter>
             },
         ]
+    },
+    {
+        path: "/login",
+        element: <Login />,
+    },
+    {
+        path: "/register",
+        element: <Register />
     },
 ]);
 export default router;

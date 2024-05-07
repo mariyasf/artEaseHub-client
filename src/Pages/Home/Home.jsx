@@ -1,10 +1,11 @@
 import { Link, useLoaderData } from "react-router-dom";
 import About from "./About";
 import Banner from "./Banner";
-import Feedback from "./Feedback";
+import Feedback from "../Feedback/Feedback";
 import Service from "./Service";
 import { useState } from "react";
 import Products from "../../Components/Products";
+import CustomerFeedback from "./CustomerFeedback";
 
 
 const Home = () => {
@@ -47,7 +48,9 @@ const Home = () => {
                     }
                 </div>
             }
-            <Feedback />
+
+            <CustomerFeedback />
+
         </div>
     );
 };

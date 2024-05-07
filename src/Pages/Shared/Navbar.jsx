@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "/images/logo.png";
-import { FaPhoneAlt } from "react-icons/fa";
+import { FaCartPlus, FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { BiSolidMessageAltDetail } from "react-icons/bi";
 import { useContext } from "react";
@@ -20,7 +20,8 @@ const Navbar = () => {
         <li> <NavLink to={'/'}> Home</NavLink> </li>
         <li> <NavLink to={'/add'}> Add</NavLink> </li>
         <li> <NavLink to={'/allProduct'}> All Product</NavLink> </li>
-        <li> <NavLink to={'/myCart'}> My Cart</NavLink> </li>
+        <li> <NavLink to={'/feedback'}>Feedback</NavLink> </li>
+        <li> <NavLink to={'/myCart'}> <FaCartPlus className="text-white" /></NavLink> </li>
 
     </>
     return (

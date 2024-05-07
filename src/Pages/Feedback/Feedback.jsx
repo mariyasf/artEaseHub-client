@@ -1,18 +1,50 @@
+import { useState } from "react";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 
 const Feedback = () => {
 
-
-
     const handleSubmit = e => {
         e.preventDefault();
+
         const form = e.target;
-
-
         const name = form.name.value;
         const email = form.email.value;
         const message = form.message.value;
-        console.log(name, email, message)
+        const title = form.title.value;
+
+        const newFeed = {
+            name,
+            email,
+            message,
+            title
+        }
+        console.log(newFeed)
+
+
+        fetch('http://localhost:5000/feedback', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newFeed)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+
+                    Swal.fire({
+                        icon: "success",
+                        title: "Sccess",
+                        text: 'Feedback Added successfully',
+                        confirmButtonText: 'Ok'
+                    });
+                }
+            })
+
+        form.reset()
 
     };
     return (
@@ -42,6 +74,14 @@ const Feedback = () => {
                                 placeholder="Your Name"
                                 className="w-full border border-gray-300 rounded-lg px-3 py-2" required />
                         </div>
+
+                        <div className="mb-4">
+                            <label htmlFor="title" className="block font-semibold mb-1">Title</label>
+                            <input type="text"
+                                id="title" name="title"
+                                placeholder="Title"
+                                className="w-full border border-gray-300 rounded-lg px-3 py-2" required />
+                        </div>
                         <div className="mb-4">
                             <label htmlFor="email" className="block font-semibold mb-1">Email</label>
                             <input type="email"
@@ -59,12 +99,11 @@ const Feedback = () => {
                         </div>
 
                         <div className='flex justify-end'>
-                            <button type="submit"
-                                className="btn btn-primary text-white px-4 py-2 
-                        rounded-lg hover:bg-blue-600 transition
-                         duration-300">Submit</button>
+                            <input
+                                className="btn w-full bg-sky-500 text-white "
+                                type="submit"
+                                value="Submit" />
                         </div>
-
                     </form>
                 </div>
             </div>
