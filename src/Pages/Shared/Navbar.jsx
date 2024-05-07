@@ -6,16 +6,22 @@ import { BiSolidMessageAltDetail } from "react-icons/bi";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProviders";
 import profile from '/images/user.png'
-
+import { MdNightlightRound, MdOutlineLightMode } from "react-icons/md";
+import { useTheme } from "../../Provider/ThemeProvider";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const { theme, toggleTheme } = useTheme();
 
     const handleSignOut = () => {
         logOut()
             .then()
             .catch()
     }
+
+
+
+
     const navLink = <>
         <li> <NavLink to={'/'}> Home</NavLink> </li>
         <li> <NavLink to={'/add'}> Add</NavLink> </li>
@@ -110,13 +116,9 @@ const Navbar = () => {
 
                     </div>
 
+
                     <div className="py-5 mx-5 flex items-center ">
-                        {
-                            user?.displayName &&
-                            <h2 className="mr-4 text-white">
-                                Welcome, {user?.displayName}
-                            </h2>
-                        }
+
                         {
                             user ?
                                 <>
@@ -159,11 +161,13 @@ const Navbar = () => {
                         }
 
 
-                        {/* <Link to={'/login'}>
-                            <a className="btn hover:bg-[#C54B8C] hover:text-white w-[100px]">
-                                Login
-                            </a>
-                        </Link> */}
+
+                        <button onClick={toggleTheme} className="Toggle ml-5 text-3xl">
+                            {theme === 'light' ? <MdOutlineLightMode /> : <MdNightlightRound />}
+                        </button>
+
+
+
                     </div>
                 </div>
             </div>
