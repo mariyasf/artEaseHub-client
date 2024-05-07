@@ -7,7 +7,7 @@ import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
     document.title = 'Login'
-    const { signIn } = useContext(AuthContext);
+    const { signIn, handleGoogleSignIn, handleGithubSignIn } = useContext(AuthContext);
     const [showPass, setShowPass] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
@@ -53,7 +53,32 @@ const Login = () => {
 
     }
 
+    const handleGoogle = () => {
+        console.log("YES");
 
+        handleGoogleSignIn()
+            .then(result => {
+                console.log(result.user)
+                // NAvigate after login
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                console.error(error);
+            })
+
+    }
+
+    const handleGithub = () => {
+        handleGithubSignIn()
+            .then(result => {
+                console.log(result.user)
+                // NAvigate after login
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
 
     return (
         <div>
@@ -110,10 +135,10 @@ const Login = () => {
                         </div>
 
                         <div className="mx-auto space-x-5 text-2xl mb-5">
-                            <button>
+                            <button onClick={handleGoogle}>
                                 <FaGoogle />
                             </button>
-                            <button>
+                            <button onClick={handleGithub}>
                                 <FaGithub />
                             </button>
                         </div>

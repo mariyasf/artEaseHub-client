@@ -67,7 +67,7 @@ const Navbar = () => {
             </div>
 
             <div className="flex justify-between font-Poppins  bg-base-100">
-                <div className="flex py-5 bg-black  ">
+                <div className="flex py-5 bg-black">
                     <div className="dropdown">
                         <div tabIndex={0}
                             role="button"
@@ -83,8 +83,8 @@ const Navbar = () => {
                             </svg>
                         </div>
                         <ul tabIndex={0}
-                            className="menu  menu-sm dropdown-content mt-3 z-[1] p-2 
-                            shadow bg-base-100 rounded-box w-52">
+                            className="menu  menu-sm text-white dropdown-content mt-3 z-[1] p-2 
+                            shadow bg-black rounded-box w-52">
                             {navLink}
                         </ul>
                     </div>
@@ -135,8 +135,8 @@ const Navbar = () => {
                                         </div>
 
                                         <ul tabIndex={0}
-                                            className="dropdown-content z-[1] text-black
-                                             menu p-2 shadow bg-base-100 rounded-box w-52">
+                                            className="dropdown-content z-[1] text-white
+                                             menu p-2 shadow bg-black rounded-box w-52">
                                             <li>
                                                 <NavLink to={'/profile'}>
                                                     {user?.displayName || 'Profile'}

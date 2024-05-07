@@ -29,15 +29,15 @@ const Footer = () => {
                         <div className='space-y-4 text-lg '>
                             <p className='flex gap-4'>
                                 <IoMdCall />
-                                <span>+88 01533 333 333</span>
+                                <span>+88 0123456789</span>
                             </p>
                             <p className='flex gap-4'>
                                 <MdEmail />
-                                <span> info@gmail.com</span>
+                                <span> arteasehub@gmial.com </span>
                             </p>
                             <p className='flex gap-4'>
                                 <FaLocationDot />
-                                <span>72, Wall street, King Road, Dhaka</span>
+                                <span>123 Art Avenue Sector 5, San Francisco California, USA</span>
                             </p>
                         </div>
 

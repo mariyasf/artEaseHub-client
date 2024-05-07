@@ -8,7 +8,7 @@ const About = () => {
         <div className='bg-[#ECEAE3] mb-20 flex flex-col lg:flex-row text-center gap-4 mx-auto p-10'>
 
             <div>
-                <IoIosColorPalette className='mx-auto text-8xl' />
+                <IoIosColorPalette className='mx-auto text-8xl text-orange-500' />
                 <h3 className='font-Rancho text-xl font-bold'>Unique Designs</h3>
                 <p>
                     Each painting is crafted with unique and innovative designs to captivate your imagination.
@@ -22,7 +22,7 @@ const About = () => {
                 </p>
             </div>
             <div>
-                <FcServices className='mx-auto text-8xl' />
+                <FcServices className='mx-auto text-8xl ' />
                 <h3 className='font-Rancho text-xl font-bold'>
                     Professional Service
                 </h3>
@@ -32,7 +32,7 @@ const About = () => {
             </div>
 
             <div>
-                <GrClearOption className='mx-auto text-8xl' />
+                <GrClearOption className='mx-auto text-8xl text-orange-700' />
                 <h3 className='font-Rancho text-xl font-bold'>
                     Customization Options
                 </h3>
