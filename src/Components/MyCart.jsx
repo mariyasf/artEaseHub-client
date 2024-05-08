@@ -7,13 +7,15 @@ import { Link } from "react-router-dom";
 
 
 const MyCart = () => {
+    document.title = 'My Cart List'
+
     const { user } = useContext(AuthContext) || {};
     // console.log(user.email);
 
     const [iteams, setItems] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myProduct/${user?.email}`)
+        fetch(`https://art-ease-hub-server.vercel.app/myProduct/${user?.email}`)
             .then(result => result.json())
             .then(data => {
                 // console.log(data);
@@ -36,7 +38,7 @@ const MyCart = () => {
             if (result.isConfirmed) {
 
 
-                fetch(`http://localhost:5000/myProduct/${id}`, {
+                fetch(`https://art-ease-hub-server.vercel.app/myProduct/${id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())

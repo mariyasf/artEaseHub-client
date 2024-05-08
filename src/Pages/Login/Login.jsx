@@ -32,7 +32,7 @@ const Login = () => {
                     email,
                     lastLoginAt: result.user?.metadata?.lastSignInTime,
                 }
-                fetch('http://localhost:5000/user', {
+                fetch('https://art-ease-hub-server.vercel.app/user', {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'

@@ -22,7 +22,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />,
-                loader: () => fetch('http://localhost:5000/painting'),
+                loader: () => fetch('https://art-ease-hub-server.vercel.app/painting'),
             },
             {
                 path: "/add",
@@ -35,12 +35,12 @@ const router = createBrowserRouter([
             {
                 path: "/update/:id",
                 element: <UpdateCard />,
-                loader: ({ params }) => fetch(`http://localhost:5000/painting/${params.id}`),
+                loader: ({ params }) => fetch(`https://art-ease-hub-server.vercel.app/painting/${params.id}`),
             },
             {
                 path: "/allProduct",
                 element: <ALLProduct />,
-                loader: () => fetch('http://localhost:5000/painting'),
+                loader: () => fetch('https://art-ease-hub-server.vercel.app/painting'),
             },
             {
                 path: "/myCart",

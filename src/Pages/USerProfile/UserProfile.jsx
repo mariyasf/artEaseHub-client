@@ -1,17 +1,21 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProviders";
 import { ToastContainer, toast } from "react-toastify";
+import profile from '/images/user.png'
 
 const UserProfile = () => {
     document.title = 'My Profile'
 
     const { user, updateUserProfile } = useContext(AuthContext);
 
-    const { displayName, email, phoneNumber, emailVerified } = user;
+    const { displayName, email, phoneNumber, emailVerified, photoURL } = user;
 
-     
+    function isValidURL(url) {
+        const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
+        return urlPattern.test(url);
+    }
 
-    console.log(phoneNumber);
+    // console.log(phoneNumber);
 
     const handleUpdate = (e) => {
         e.preventDefault();
@@ -39,8 +43,12 @@ const UserProfile = () => {
     return (
         <>
             <div className="grid grid-cols-3 w-[1140px] mx-auto my-10 gap-10">
-                <div className="border-r-2">
-                    <img src="/images/user.png" alt="" />
+                <div className="border-r-2 space-y-5 mt-10">
+                    <img alt="Profile"
+                        src={user && isValidURL(user.photoURL) ? user.photoURL : profile} />
+
+
+                    <p >{displayName}</p>
                 </div>
 
                 <div className="max-w-6xl mx-10 lg:mx-auto font-poppins col-span-2">

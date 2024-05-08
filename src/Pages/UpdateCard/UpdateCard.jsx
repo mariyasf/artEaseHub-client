@@ -3,6 +3,8 @@ import Swal from 'sweetalert2';
 import HomeButton from '../../Components/HomeButton';
 
 const UpdateCard = () => {
+    document.title = 'Update'
+
     const product = useLoaderData();
 
     const {
@@ -48,7 +50,7 @@ const UpdateCard = () => {
         console.log(updatedCard);
 
         // Send data to the server
-        fetch(`http://localhost:5000/painting/${_id}`, {
+        fetch(`https://art-ease-hub-server.vercel.app/painting/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

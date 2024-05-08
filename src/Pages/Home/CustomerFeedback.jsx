@@ -7,7 +7,7 @@ const CustomerFeedback = () => {
     const [review, setReview] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/feedback')
+        fetch('https://art-ease-hub-server.vercel.app/feedback')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -24,7 +24,7 @@ const CustomerFeedback = () => {
 
             </div>
 
-            <Marquee  className='py-10'>
+            <Marquee className='py-10'>
                 {
                     review.map(feed =>
                         <FeedbackCard key={feed.id} feed={feed}>

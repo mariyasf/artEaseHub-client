@@ -11,6 +11,7 @@ import { useTheme } from "../../Provider/ThemeProvider";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+
     const { theme, toggleTheme } = useTheme();
 
     const handleSignOut = () => {
@@ -19,6 +20,10 @@ const Navbar = () => {
             .catch()
     }
 
+    function isValidURL(url) {
+        const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
+        return urlPattern.test(url);
+    }
 
 
 
@@ -27,7 +32,7 @@ const Navbar = () => {
         <li> <NavLink to={'/add'}> Add</NavLink> </li>
         <li> <NavLink to={'/allProduct'}> All Product</NavLink> </li>
         <li> <NavLink to={'/feedback'}>Feedback</NavLink> </li>
-        <li> <NavLink to={'/myCart'}> <FaCartPlus className="text-white" /></NavLink> </li>
+        <li> <NavLink to={'/myCart'}> My Cart </NavLink> </li>
 
     </>
     return (
@@ -97,7 +102,7 @@ const Navbar = () => {
 
                     <div className="">
                         <Link to={'/'}
-                            className="btn btn-ghost text-2xl 
+                            className="btn btn-ghost text-xl 
                          lg:text-4xl  font-Rancho">
                             <img src={logo}
                                 className=" w-12 h-12 lg:w-20 lg:h-20" alt="logo" />
@@ -131,7 +136,8 @@ const Navbar = () => {
                                         >
 
                                             <div className="w-10 rounded-full">
-                                                <img alt="Profile" src={profile} />
+                                                <img alt="Profile"
+                                                    src={user && isValidURL(user.photoURL) ? user.photoURL : profile} />
                                             </div>
 
                                         </div>

@@ -23,7 +23,7 @@ const ProductCard = ({ product, painting, setPainting }) => {
             if (result.isConfirmed) {
 
 
-                fetch(`http://localhost:5000/painting/${id}`, {
+                fetch(`https://art-ease-hub-server.vercel.app/painting/${id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())

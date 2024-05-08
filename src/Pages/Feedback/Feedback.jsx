@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 
 
 const Feedback = () => {
+    document.title = 'Customer Feedback'
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -23,7 +24,7 @@ const Feedback = () => {
         console.log(newFeed)
 
 
-        fetch('http://localhost:5000/feedback', {
+        fetch('https://art-ease-hub-server.vercel.app/feedback', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -2,6 +2,8 @@ import HomeButton from "../../Components/HomeButton";
 import Swal from 'sweetalert2'
 
 const AddCard = () => {
+    document.title = 'Add'
+
     const handleAddCard = e => {
         e.preventDefault();
 
@@ -16,7 +18,7 @@ const AddCard = () => {
         const stock_status = form.stock_status.value;
         const email = form.email.value;
         const photo = form.photo.value;
-        
+
         const newPainting = {
             item_name,
             subcategory_name,
@@ -32,7 +34,7 @@ const AddCard = () => {
         console.log(newPainting);
 
         // Send data to the server
-        fetch('http://localhost:5000/painting', {
+        fetch('https://art-ease-hub-server.vercel.app/painting', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -63,7 +65,7 @@ const AddCard = () => {
             <div className="bg-[#F4F3F0] flex flex-col items-center">
                 <div className="text-center space-y-5 py-20 px-10">
                     <h2 className="font-Rancho text-4xl">Add Painting</h2>
-                     
+
 
                 </div>
 
@@ -157,7 +159,7 @@ const AddCard = () => {
                             <div className="label">
                                 <span className="label-text">Processing Time</span>
                             </div>
-                            <input type="text"
+                            <input type="number"
                                 name="processing_time"
                                 required placeholder="Enter Processing Time"
                                 className="input input-bordered w-full" />
